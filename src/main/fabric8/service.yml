@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ${project.artifactId}
+  annotations:
+    description: ${project.artifactId} Service based on WF Swarm
+spec:
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+  selector:
+    deploymentconfig: ${project.artifactId}
+  type: LoadBalancer
